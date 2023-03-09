@@ -1,1 +1,1 @@
-# proyecto-colegio
+Leandro Hernán Ibarra
