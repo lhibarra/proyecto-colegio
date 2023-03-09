@@ -1,0 +1,16 @@
+{% extends "AppColegio/base.html" %}
+{% load static %}
+{% block main %}
+
+{%if form %}
+    <h1>Cargar Alumno</h1>
+    <form action="{% url 'agregar-estudiante' %}" method="post">
+        {% csrf_token %}
+        {{form.as_p}} <!--Es una variable de django template language-->
+        <input type="submit" value="Agregar"> 
+
+    </form>
+{%endif%}
+
+
+{% endblock %}

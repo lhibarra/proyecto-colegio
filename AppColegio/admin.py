@@ -1,3 +1,7 @@
 from django.contrib import admin
+from AppColegio.models import Estudiante, Profesor, Entregable, Curso
 
-# Register your models here.
+admin.site.register(Estudiante)
+admin.site.register(Profesor)
+admin.site.register(Entregable)
+admin.site.register(Curso)

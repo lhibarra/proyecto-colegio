@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from AppColegio.views import index, agregar_estudiante, mostrar_estudiante
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', index, name= "index"),
+    path('estudiantes', mostrar_estudiante, name="ver-estudiante"),
+    path('estudiantes/agregar', agregar_estudiante, name="agregar-estudiante"),
 ]
