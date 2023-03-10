@@ -12,18 +12,24 @@ def index(request):
 def mostrar_estudiante(request):
     contex = {
         "form": EstudForm(),
-        "posts": Estudiante.objects.all(),
+        "estudiantes": Estudiante.objects.all(),
     }
     return render(request, "AppColegio/carga_estudiante.html", contex)
 
 
-
-
 def agregar_estudiante(request):
-    form_post = EstudForm(request.POST)
-    form_post.save()  # Construyo objeto tipo EstudForm con los datos cargados por el usuario
+    form_post = EstudForm(request.POST) # Construyo objeto tipo EstudForm con los datos cargados por el usuario
+    form_post.save()  
     context = {
         "form": EstudForm(),
         "estudiantes": Estudiante.objects.all(),
+    }
+    return render(request, "AppColegio/carga_estudiante.html", context)
+
+
+def buscar_estudiante(request):
+    criterio = request.GET.get("criterio")
+    context = {
+        "estudiantes": Estudiante.objects.filter(nombre__icontains=criterio).all(),
     }
     return render(request, "AppColegio/carga_estudiante.html", context)

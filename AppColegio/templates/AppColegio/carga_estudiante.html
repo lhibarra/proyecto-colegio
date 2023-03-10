@@ -3,14 +3,27 @@
 {% block main %}
 
 {%if form %}
-    <h1>Cargar Alumno</h1>
-    <form action="{% url 'agregar-estudiante' %}" method="post">
-        {% csrf_token %}
-        {{form.as_p}} <!--Es una variable de django template language-->
-        <input type="submit" value="Agregar"> 
+<h1>Cargar Estudiante</h1>
+<form action="{% url 'agregar-estudiante' %}" method="post">
+    {% csrf_token %}
+    {{form.as_p}} 
+    <input type="submit" value="Agregar">
 
-    </form>
+</form>
+{%else%}
+
+<h1>Resuldo de la búsqueda</h1>
 {%endif%}
+<form action="{% url 'buscar-estudiante' %}" class="d-flex" style="padding: 10px;">
+    <input class="form-control me-2" name="criterio" type="search" placeholder="Buscar Estudiante" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Buscar</button>
+</form>
+
+<ul>
+    {% for estudiante in estudiantes %}
+    <li>{{estudiante.id}} - {{estudiante.nombre}}</li>
+    {% endfor %}
+</ul>
 
 
 {% endblock %}
