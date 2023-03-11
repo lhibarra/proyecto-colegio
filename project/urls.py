@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from AppColegio.views import index, agregar_estudiante, mostrar_estudiante, buscar_estudiante, agregar_profesor, mostrar_profesor, buscar_profesor
+from AppColegio.views import index, agregar_estudiante, mostrar_estudiante, buscar_estudiante, agregar_profesor, mostrar_profesor, buscar_profesor, mostrar_curso, agregar_curso, buscar_camada
 
 
 
@@ -24,11 +24,19 @@ from AppColegio.views import index, agregar_estudiante, mostrar_estudiante, busc
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name= "index"),
-    path('estudiantes', mostrar_estudiante, name="ver-estudiante"),
-    path('estudiantes/agregar', agregar_estudiante, name="agregar-estudiante"),
-    path('mis-post/buscar', buscar_estudiante, name="buscar-estudiante"),
+    # urls de estudiante
+    path('estudiante', mostrar_estudiante, name="ver-estudiante"),
+    path('estudiante/agregar', agregar_estudiante, name="agregar-estudiante"),
+    path('estudiante/buscar', buscar_estudiante, name="buscar-estudiante"),
+    #urls de profesor
+    path('profesor', mostrar_profesor, name="ver-profesor"),
+    path('profesor/agregar', agregar_profesor, name="agregar-profesor"),
+    path('profesor/buscar', buscar_profesor, name="buscar-profesor"),
+    #urls curso
+    path('curso', mostrar_curso, name="ver-curso"),
+    path('curso/agregar', agregar_curso, name="agregar-curso"),
+    path('curso/buscar', buscar_camada, name="buscar-camada"),
+    
+    
 
-    path('profesores', mostrar_profesor, name="ver-profesor"),
-    path('profesores/agregar', agregar_profesor, name="agregar-profesor"),
-    path('profesores/buscar', buscar_profesor, name="buscar-profesor"),
 ]

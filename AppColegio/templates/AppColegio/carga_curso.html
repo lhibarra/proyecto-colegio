@@ -1,0 +1,29 @@
+{% extends "AppColegio/base.html" %}
+{% load static %}
+{% block main %}
+
+{%if form %}
+<h1>Cargar Curso</h1>
+    <form action="{% url 'agregar-curso' %}" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Agregar">
+
+    </form>
+{%else%}
+
+<h1>Resuldo de la búsqueda</h1>
+{%endif%}
+<form action="{% url 'buscar-camada' %}" class="d-flex" style="padding: 10px;">
+    <input class="form-control me-2" name="criterio" type="search" placeholder="Buscar camada" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Buscar</button>
+</form>
+
+<ul>
+    {% for curso in cursos %}
+    <li> Curso:{{curso.nombre}}  Camada Nro:{{curso.camada}} </li>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}
