@@ -1,31 +1,33 @@
 {% extends "AppColegio/base.html" %}
 {% load static %}
-{% block main %}
+<main>
+    {% block main %}
 
-{%if form %}
-<h1>Cargar Profesor</h1>
-<form action="{% url 'agregar-profesor' %}" method="post">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Agregar">
+    {%if form %}
+    <h1>Cargar Profesor</h1>
+    <form action="{% url 'agregar-profesor' %}" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Agregar">
 
-</form>
-{%else%}
+    </form>
+    {%else%}
 
- <h1>Resuldo de la búsqueda</h1>
-{%endif%}
-<form action="{% url 'buscar-profesor' %}" class="d-flex" style="padding: 10px;">
-    <input class="form-control me-2" name="criterio" type="search" placeholder="Buscar Profesor por especialidad"
-        aria-label="Search">
-    <button class="btn btn-outline-success" type="submit">Buscar</button>
-</form>
-
-
-<ul>
-    {% for profesor in profesores %}
-    <li>{{profesore.id}} - {{profesor.nombre}} - {{profesor.apellido}} {{profesor.profesion}}</li>
-    {% endfor %}
-</ul>
+    <h2>Resultado de la búsqueda</h2>
+    {%endif%}
+    <form action="{% url 'buscar-profesor' %}" class="d-flex" style="padding: 10px;">
+        <input class="form-control me-2" name="criterio" type="search" placeholder="Buscar Profesor por especialidad"
+            aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
+    </form>
 
 
-{% endblock %}
+    <ul>
+        {% for profesor in profesores %}
+        <li>{{profesore.id}} - {{profesor.nombre}} - {{profesor.apellido}} {{profesor.profesion}}</li>
+        {% endfor %}
+    </ul>
+
+
+    {% endblock %}
+</main>

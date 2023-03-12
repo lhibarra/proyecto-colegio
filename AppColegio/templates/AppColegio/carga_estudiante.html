@@ -1,29 +1,31 @@
 {% extends "AppColegio/base.html" %}
 {% load static %}
-{% block main %}
+<main>
+    {% block main %}
 
-{%if form %}
-<h1>Cargar Estudiante</h1>
-<form action="{% url 'agregar-estudiante' %}" method="post">
-    {% csrf_token %}
-    {{form.as_p}} 
-    <input type="submit" value="Agregar">
+    {%if form %}
+    <h1>Cargar Estudiantes</h1>
+    <form action="{% url 'agregar-estudiante' %}" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Agregar">
+    </form>
+    {%else%}
 
-</form>
-{%else%}
+    <h2>Resultado de la búsqueda</h2>
+    {%endif%}
+    <form action="{% url 'buscar-estudiante' %}" class="d-flex" style="padding: 10px;">
+        <input class="form-control me-2" name="criterio" type="search" placeholder="Buscar Estudiante"
+            aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
+    </form>
 
-<h1>Resuldo de la búsqueda</h1>
-{%endif%}
-<form action="{% url 'buscar-estudiante' %}" class="d-flex" style="padding: 10px;">
-    <input class="form-control me-2" name="criterio" type="search" placeholder="Buscar Estudiante" aria-label="Search">
-    <button class="btn btn-outline-success" type="submit">Buscar</button>
-</form>
-
-<ul>
-    {% for estudiante in estudiantes %}
-    <li>{{estudiante.id}} - {{estudiante.nombre}}</li>
-    {% endfor %}
-</ul>
+    <ul>
+        {% for estudiante in estudiantes %}
+        <li>{{estudiante.id}} - {{estudiante.nombre}}</li>
+        {% endfor %}
+    </ul>
 
 
-{% endblock %}
+    {% endblock %}
+</main>

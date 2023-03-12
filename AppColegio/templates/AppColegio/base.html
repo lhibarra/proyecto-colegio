@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     {% load static %}
@@ -8,11 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Carousel Template · Bootstrap v5.0</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
-
-
+    <title>COLEGIO 25 DE MAYO</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'AppColegio/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -29,7 +25,6 @@
         color="#7952b3">
     <link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon.ico">
     <meta name="theme-color" content="#7952b3">
-
 
     <style>
         .bd-placeholder-img {
@@ -48,16 +43,14 @@
     </style>
 
     <!-- Custom styles for this template -->
-    <link href="{% static 'AppColegio/css/carousel.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'AppColegio/css/styles.css'%}">
 </head>
 
-<body style="background-color:chocolate;">
-    <!-- CABECERA -->
-    
+<body>
+    <!-- CABECERA y MENU DE NAVEGACION -->
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <div class="container-fluid">
-               <!-- <a class="navbar-brand" href="https://getbootstrap.com/docs/5.0/examples/carousel/#">Carousel</a>-->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -76,31 +69,34 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'ver-curso' %}">Cursos</a>
                         </li>
-                        <!--<li class="nav-item">
-                            <a class="nav-link disabled" href="https://getbootstrap.com/docs/5.0/examples/carousel/#"
-                                tabindex="-1" aria-disabled="true">Disabled</a>
-                        </li>-->
                     </ul>
-                    <!-- <form action="{% url 'buscar-estudiante' %}" class="d-flex">
-                        <input class="form-control me-2" name="criterio" type="search" placeholder="Buscar un Post"
-                            aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Buscar</button>
-                    </form>  -->
-                </div> 
+                </div>
             </div>
         </nav>
     </header>
-
-    {%block main%}
-    {%endblock%}
     <main>
-
+        <div class="body">
+            <h1>Bienvenidos al Colegio 25 de Mayo!!!</h1>
+            <section class="hero">
+                <img src="{%static 'AppColegio/assets/escuela.jpeg'%}" alt="escuela">
+                <img src="{%static 'AppColegio/assets/escuela1.jpeg'%}" alt="escuela por dentro">
+            </section>
+            <section>
+                {%block main%}
+                {%endblock%}
+            </section>
+        </div>
     </main>
     <!-- PIE DE LA PAGINA -->
-    <footer class="container">
-        <p class="float-end"><a href="https://getbootstrap.com/docs/5.0/examples/carousel/#">Back to top</a></p>
-        <p>© 2017–2021 Company, Inc. · <a href="https://getbootstrap.com/docs/5.0/examples/carousel/#">Privacy</a> · <a
-                href="https://getbootstrap.com/docs/5.0/examples/carousel/#">Terms</a></p>
+    <footer class="footer">
+        <div class="redes">
+            <img src="{%static 'AppColegio/assets/copyright.png'%}" alt="simbolo copyright">
+            <h3>Leandro Hernan Ibarra</h3>
+            <div class="github">
+                <a href="https://github.com/lhibarra"><img src="{%static 'AppColegio/assets/github.png'%}"
+                        alt="logo github"></a>
+            </div>
+        </div>
     </footer>
 
 
